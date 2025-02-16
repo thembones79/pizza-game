@@ -1,6 +1,6 @@
 export const sss = 0;
 
-export interface IConfig {
+export interface OverworldConfig {
   element: Element;
 }
 
@@ -9,7 +9,7 @@ export class Overworld {
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
 
-  constructor(config: IConfig) {
+  constructor(config: OverworldConfig) {
     this.element = config.element;
     this.canvas = this.element.querySelector(
       ".game-canvas",
