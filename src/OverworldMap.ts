@@ -16,4 +16,12 @@ export class OverworldMap {
     this.upperImage = new Image();
     this.upperImage.src = config.upperSrc;
   }
+
+  drawLowerImage(ctx: CanvasRenderingContext2D) {
+    ctx.drawImage(this.lowerImage, 0, 0);
+  }
+
+  drawUpperImage(ctx: CanvasRenderingContext2D) {
+    ctx.drawImage(this.upperImage, 0, 0);
+  }
 }
