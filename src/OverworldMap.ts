@@ -6,12 +6,14 @@ export interface OverworldMapConfig {
 }
 export class OverworldMap {
   gameObject: GameObject;
-  lowerSrc: string;
-  upperSrc: string;
+  lowerImage: HTMLImageElement;
+  upperImage: HTMLImageElement;
 
   constructor(config: OverworldMapConfig) {
     this.gameObject = config.gameObject;
-    this.lowerSrc = config.lowerSrc;
-    this.upperSrc = config.upperSrc;
+    this.lowerImage = new Image();
+    this.lowerImage.src = config.lowerSrc;
+    this.upperImage = new Image();
+    this.upperImage.src = config.upperSrc;
   }
 }
