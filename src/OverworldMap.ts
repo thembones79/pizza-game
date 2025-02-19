@@ -1,4 +1,11 @@
-import type { GameObject } from "./GameObject";
+import { GameObject } from "./GameObject";
+
+declare global {
+  interface Window {
+    OverworldMaps: any;
+  }
+}
+
 export interface OverworldMapConfig {
   gameObject: GameObject;
   lowerSrc: string;
@@ -25,3 +32,21 @@ export class OverworldMap {
     ctx.drawImage(this.upperImage, 0, 0);
   }
 }
+
+window.OverworldMaps = {
+  DemoRoom: {
+    lowerSrc: "./images/maps/DemoLower.png",
+    upperSrc: "./images/maps/DemoUpper.png",
+    gameObjects: {
+      hero: new GameObject({
+        x: 5,
+        y: 6,
+      }),
+      npc1: new GameObject({
+        x: 7,
+        y: 9,
+        src: "./images/characters/people/npc1.png",
+      }),
+    },
+  },
+};
