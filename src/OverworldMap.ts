@@ -49,4 +49,29 @@ window.OverworldMaps = {
       }),
     },
   },
+  Kitchen: {
+    lowerSrc: "./images/maps/KitchenLower.png",
+    upperSrc: "./images/maps/KitchenDemoUpper.png",
+    gameObjects: {
+      hero: new GameObject({
+        x: 5,
+        y: 6,
+      }),
+      npc1: new GameObject({
+        x: 7,
+        y: 9,
+        src: "./images/characters/people/npc1.png",
+      }),
+      npcA: new GameObject({
+        x: 8,
+        y: 8,
+        src: "./images/characters/people/npc2.png",
+      }),
+      npcB: new GameObject({
+        x: 9,
+        y: 2,
+        src: "./images/characters/people/npc3.png",
+      }),
+    },
+  },
 };

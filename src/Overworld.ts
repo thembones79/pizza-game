@@ -15,9 +15,19 @@ export class Overworld {
       ".game-canvas",
     ) as HTMLCanvasElement;
     this.ctx = this.canvas.getContext("2d")!;
+    this.map=null;
+  }
+
+  startGameLoop() {
+    const step = () => {
+      requestAnimationFrame(() => {
+        step();
+      });
+    };
   }
 
   init() {
+      this.startGameLoop();
     const image = new Image();
     image.onload = () => {
       this.ctx.drawImage(image, 0, 0);
