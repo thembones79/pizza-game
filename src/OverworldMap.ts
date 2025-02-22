@@ -2,22 +2,22 @@ import { GameObject } from "./GameObject";
 
 declare global {
   interface Window {
-    OverworldMaps: any;
+    OverworldMaps: Record<string, OverworldMapConfig>;
   }
 }
 
 export interface OverworldMapConfig {
-  gameObject: GameObject;
+  gameObjects: Record<string, GameObject>;
   lowerSrc: string;
   upperSrc: string;
 }
 export class OverworldMap {
-  gameObject: GameObject;
+  gameObjects: Record<string, GameObject>;
   lowerImage: HTMLImageElement;
   upperImage: HTMLImageElement;
 
   constructor(config: OverworldMapConfig) {
-    this.gameObject = config.gameObject;
+    this.gameObjects = config.gameObjects;
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
     this.upperImage = new Image();
@@ -51,7 +51,7 @@ window.OverworldMaps = {
   },
   Kitchen: {
     lowerSrc: "./images/maps/KitchenLower.png",
-    upperSrc: "./images/maps/KitchenDemoUpper.png",
+    upperSrc: "./images/maps/KitchenUpper.png",
     gameObjects: {
       hero: new GameObject({
         x: 5,
@@ -69,7 +69,7 @@ window.OverworldMaps = {
       }),
       npcB: new GameObject({
         x: 9,
-        y: 2,
+        y: 5,
         src: "./images/characters/people/npc3.png",
       }),
     },
