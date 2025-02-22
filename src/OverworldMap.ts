@@ -1,4 +1,5 @@
 import { GameObject } from "./GameObject";
+import { utils } from "./utils";
 
 declare global {
   interface Window {
@@ -39,12 +40,12 @@ window.OverworldMaps = {
     upperSrc: "./images/maps/DemoUpper.png",
     gameObjects: {
       hero: new GameObject({
-        x: 5,
-        y: 6,
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
       }),
       npc1: new GameObject({
-        x: 7,
-        y: 9,
+        x: utils.withGrid(7),
+        y: utils.withGrid(9),
         src: "./images/characters/people/npc1.png",
       }),
     },
@@ -54,22 +55,22 @@ window.OverworldMaps = {
     upperSrc: "./images/maps/KitchenUpper.png",
     gameObjects: {
       hero: new GameObject({
-        x: 5,
-        y: 6,
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
       }),
       npc1: new GameObject({
-        x: 7,
-        y: 9,
+        x: utils.withGrid(7),
+        y: utils.withGrid(9),
         src: "./images/characters/people/npc1.png",
       }),
       npcA: new GameObject({
-        x: 8,
-        y: 8,
+        x: utils.withGrid(8),
+        y: utils.withGrid(8),
         src: "./images/characters/people/npc2.png",
       }),
       npcB: new GameObject({
-        x: 9,
-        y: 5,
+        x: utils.withGrid(9),
+        y: utils.withGrid(5),
         src: "./images/characters/people/npc3.png",
       }),
     },
