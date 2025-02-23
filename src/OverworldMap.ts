@@ -3,11 +3,11 @@ import { utils } from "./utils";
 
 declare global {
   interface Window {
-    OverworldMaps: Record<string, OverworldMapConfig>;
+    OverworldMaps: Record<string, IOverworldMapConfig>;
   }
 }
 
-export interface OverworldMapConfig {
+export interface IOverworldMapConfig {
   gameObjects: Record<string, GameObject>;
   lowerSrc: string;
   upperSrc: string;
@@ -17,7 +17,7 @@ export class OverworldMap {
   lowerImage: HTMLImageElement;
   upperImage: HTMLImageElement;
 
-  constructor(config: OverworldMapConfig) {
+  constructor(config: IOverworldMapConfig) {
     this.gameObjects = config.gameObjects;
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;

@@ -1,6 +1,6 @@
 import { OverworldMap } from "./OverworldMap";
 
-export interface OverworldConfig {
+export interface IOverworldConfig {
   element: Element;
 }
 
@@ -10,7 +10,7 @@ export class Overworld {
   ctx: CanvasRenderingContext2D;
   map: OverworldMap | null;
 
-  constructor(config: OverworldConfig) {
+  constructor(config: IOverworldConfig) {
     this.element = config.element;
     this.canvas = this.element.querySelector(
       ".game-canvas",
@@ -37,6 +37,7 @@ export class Overworld {
     this.map.drawLowerImage(this.ctx);
 
     Object.values(this.map.gameObjects).forEach((o) => {
+        o.x += 1;
       o.sprite.draw(this.ctx);
     });
 

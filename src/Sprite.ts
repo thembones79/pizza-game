@@ -1,7 +1,7 @@
 import type { GameObject } from "./GameObject";
 export type MoveType = [number, number][];
 
-export interface SpriteConfig {
+export interface ISpriteConfig {
   gameObject: GameObject;
   src: string;
   useShadow?: boolean;
@@ -21,7 +21,7 @@ export class Sprite {
   currentAnimation: string;
   currentAnimationFrame: number;
 
-  constructor(config: SpriteConfig) {
+  constructor(config: ISpriteConfig) {
     this.gameObject = config.gameObject;
     this.image = new Image();
     this.image.src = config.src;
