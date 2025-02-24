@@ -1,4 +1,5 @@
 import { GameObject } from "./GameObject";
+import { Person } from "./Person";
 import { utils } from "./utils";
 
 declare global {
@@ -54,7 +55,7 @@ window.OverworldMaps = {
     lowerSrc: "./images/maps/KitchenLower.png",
     upperSrc: "./images/maps/KitchenUpper.png",
     gameObjects: {
-      hero: new GameObject({
+      hero: new Person({
         x: utils.withGrid(5),
         y: utils.withGrid(6),
       }),

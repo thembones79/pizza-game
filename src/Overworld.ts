@@ -37,8 +37,9 @@ export class Overworld {
     this.map.drawLowerImage(this.ctx);
 
     Object.values(this.map.gameObjects).forEach((o) => {
-        o.x += 1;
+      // o.x += 1;
       o.sprite.draw(this.ctx);
+      o.sprite.gameObject.update(this.ctx);
     });
 
     this.map.drawUpperImage(this.ctx);

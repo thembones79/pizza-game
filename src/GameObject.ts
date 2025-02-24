@@ -1,6 +1,7 @@
 import { Sprite } from "./Sprite";
 
 export type TDirection = "up" | "down" | "left" | "right";
+export type TDirectionUpdate = Record<TDirection, ["y" | "x", -1 | 1]>;
 
 export interface IGameObjectConfig {
   x?: number;
@@ -24,5 +25,5 @@ export class GameObject {
       src: config.src || "./images/characters/people/hero.png",
     });
   }
-  update() {}
+  update(_: any) {}
 }
