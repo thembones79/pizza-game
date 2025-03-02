@@ -16,9 +16,8 @@ export class Person extends GameObject {
     };
   }
 
-  update(state:any){
-      console.log({state})
-      this.updatePosition();
+  update() {
+    this.updatePosition();
   }
 
   updatePosition() {
