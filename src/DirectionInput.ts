@@ -10,6 +10,10 @@ export class DirectionInput {
       ArrowDown: "down",
       ArrowLeft: "left",
       Right: "right",
+      KeyW: "up",
+      KeyS: "down",
+      KeyA: "left",
+      KeyD: "right",
     };
   }
 
