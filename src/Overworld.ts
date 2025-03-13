@@ -40,6 +40,9 @@ export class Overworld {
 
     Object.values(this.map.gameObjects).forEach((o) => {
       o.sprite.draw(this.ctx);
+      o.update({
+        arrow: this.directionInput?.direction,
+      });
       o.sprite.gameObject.update(this.ctx);
     });
 
@@ -49,7 +52,7 @@ export class Overworld {
   init() {
     this.map = new OverworldMap(window.OverworldMaps.Kitchen);
     this.startGameLoop();
-    this.directionInput = new DirectionInput()
+    this.directionInput = new DirectionInput();
     this.directionInput.init();
   }
 }
