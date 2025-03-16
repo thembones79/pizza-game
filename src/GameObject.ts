@@ -8,6 +8,7 @@ export interface IGameObjectConfig {
   y?: number;
   direction?: TDirection;
   src?: string;
+  isPlayerControlled?: boolean;
 }
 
 export class GameObject {

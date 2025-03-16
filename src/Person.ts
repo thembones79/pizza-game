@@ -3,11 +3,15 @@ import { GameObject, IGameObjectConfig, TDirectionUpdate } from "./GameObject";
 export class Person extends GameObject {
   movingProgressRemaining: number;
   directionUpdate: TDirectionUpdate;
+  isPlayerControlled?: boolean;
 
   constructor(public config: IGameObjectConfig) {
     super(config);
 
-    this.movingProgressRemaining = 16;
+    this.movingProgressRemaining = 0;
+
+    this.isPlayerControlled = this.config.isPlayerControlled || false;
+
     this.directionUpdate = {
       up: ["y", -1],
       down: ["y", 1],
@@ -16,12 +20,15 @@ export class Person extends GameObject {
     };
   }
 
-  update(state:any) {
+  update(state: any) {
     this.updatePosition();
-    if(this.movingProgressRemaining === 0 && state.arrow){
-        this.direction = state.arrow;
-        this.movingProgressRemaining = 0;
-
+    if (
+      this.isPlayerControlled &&
+      this.movingProgressRemaining === 0 &&
+      state.arrow
+    ) {
+      this.direction = state.arrow;
+      this.movingProgressRemaining = 16;
     }
   }
 

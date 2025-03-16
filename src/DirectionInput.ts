@@ -9,7 +9,7 @@ export class DirectionInput {
       ArrowUp: "up",
       ArrowDown: "down",
       ArrowLeft: "left",
-      Right: "right",
+      ArrowRight: "right",
       KeyW: "up",
       KeyS: "down",
       KeyA: "left",
