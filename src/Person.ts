@@ -16,8 +16,13 @@ export class Person extends GameObject {
     };
   }
 
-  update() {
+  update(state:any) {
     this.updatePosition();
+    if(this.movingProgressRemaining === 0 && state.arrow){
+        this.direction = state.arrow;
+        this.movingProgressRemaining = 0;
+
+    }
   }
 
   updatePosition() {
