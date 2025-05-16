@@ -57,8 +57,8 @@ export class Sprite {
         [0, 0],
       ],
     };
-    // this.currentAnimation = config.currentAnimation || "idleDown";
-    this.currentAnimation = "walk-down";
+    this.currentAnimation = config.currentAnimation || "idleDown";
+    // this.currentAnimation = "walk-down";
     this.currentAnimationFrame = 0;
 
     this.animationFrameLimit = config.animationFrameLimit || 16;
