@@ -1,4 +1,5 @@
 import type { GameObject } from "./GameObject";
+import { utils } from "./utils";
 export type MoveType = [number, number][];
 
 export interface ISpriteConfig {
@@ -104,8 +105,8 @@ export class Sprite {
     }
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
-    const x = this.gameObject.x - 8;
+  draw(ctx: CanvasRenderingContext2D, cameraPerson: GameObject ) {
+    const x = this.gameObject.x - 8 + utils.withGrid(10.5);
     const y = this.gameObject.y - 18;
     this.isShadowLoaded && ctx.drawImage(this.shadow, x, y);
     const [frameX, frameY] = this.frame;

@@ -36,10 +36,14 @@ export class Overworld {
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+
+const cameraPerson = this.map.gameObjects.hero;
+
+
     this.map.drawLowerImage(this.ctx);
 
     Object.values(this.map.gameObjects).forEach((o) => {
-      o.sprite.draw(this.ctx);
+      o.sprite.draw(this.ctx, cameraPerson);
       o.update({
         arrow: this.directionInput?.direction,
       });
