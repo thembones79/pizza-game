@@ -38,13 +38,16 @@ export class Overworld {
 
     const cameraPerson = this.map.gameObjects.hero;
 
+    Object.values(this.map.gameObjects).forEach((o) => {
+      o.update({
+        arrow: this.directionInput?.direction,
+      });
+    });
+
     this.map.drawLowerImage(this.ctx, cameraPerson);
 
     Object.values(this.map.gameObjects).forEach((o) => {
       o.sprite.draw(this.ctx, cameraPerson);
-      o.update({
-        arrow: this.directionInput?.direction,
-      });
       o.sprite.gameObject.update(this.ctx);
     });
 
