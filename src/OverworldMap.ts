@@ -10,16 +10,19 @@ declare global {
 
 export interface IOverworldMapConfig {
   gameObjects: Record<string, GameObject>;
+  walls: Record<string, GameObject>;
   lowerSrc: string;
   upperSrc: string;
 }
 export class OverworldMap {
   gameObjects: Record<string, GameObject>;
+  walls: Record<string, GameObject>;
   lowerImage: HTMLImageElement;
   upperImage: HTMLImageElement;
 
   constructor(config: IOverworldMapConfig) {
     this.gameObjects = config.gameObjects;
+    this.walls = config.walls || {};
     this.lowerImage = new Image();
     this.lowerImage.src = config.lowerSrc;
     this.upperImage = new Image();
