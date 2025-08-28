@@ -50,6 +50,11 @@ window.OverworldMaps = {
   DemoRoom: {
     lowerSrc: "./images/maps/DemoLower.png",
     upperSrc: "./images/maps/DemoUpper.png",
+        walls: {
+
+
+
+        },
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
