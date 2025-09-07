@@ -1,4 +1,4 @@
-import { GameObject } from "./GameObject";
+import { GameObject, TDirection } from "./GameObject";
 import { Person } from "./Person";
 import { utils } from "./utils";
 
@@ -10,13 +10,13 @@ declare global {
 
 export interface IOverworldMapConfig {
   gameObjects: Record<string, GameObject>;
-  walls: Record<string, GameObject>;
+  walls: Record<string, boolean>;
   lowerSrc: string;
   upperSrc: string;
 }
 export class OverworldMap {
   gameObjects: Record<string, GameObject>;
-  walls: Record<string, GameObject>;
+  walls: Record<string, boolean>;
   lowerImage: HTMLImageElement;
   upperImage: HTMLImageElement;
 
@@ -44,17 +44,23 @@ export class OverworldMap {
       utils.withGrid(6) - cameraPerson.y,
     );
   }
+
+  isSpaceTaken(currentX: number, currentY: number, direction: TDirection) {
+    const { x, y } = utils.nextPosition(currentX, currentY, direction);
+    return this.walls[`${x},${y}`] || false;
+  }
 }
 
 window.OverworldMaps = {
   DemoRoom: {
     lowerSrc: "./images/maps/DemoLower.png",
     upperSrc: "./images/maps/DemoUpper.png",
-        walls: {
-
-
-
-        },
+    walls: {
+      [utils.asGridCoord(7, 6)]: true,
+      [utils.asGridCoord(8, 6)]: true,
+      [utils.asGridCoord(7, 6)]: true,
+      [utils.asGridCoord(8, 7)]: true,
+    },
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
