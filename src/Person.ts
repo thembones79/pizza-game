@@ -29,6 +29,8 @@ export class Person extends GameObject {
       state.arrow
     ) {
       this.direction = state.arrow;
+      state.map.isSpaceTaken(this.x, this.y, this.direction);
+
       this.movingProgressRemaining = 16;
     }
   }
