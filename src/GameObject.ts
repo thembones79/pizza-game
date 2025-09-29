@@ -2,6 +2,10 @@ import { Sprite } from "./Sprite";
 
 export type TDirection = "up" | "down" | "left" | "right";
 export type TDirectionUpdate = Record<TDirection, ["y" | "x", -1 | 1]>;
+export type TBehavior = {
+  type: "walk";
+  direction: TDirection;
+};
 
 export interface IGameObjectConfig {
   x?: number;
