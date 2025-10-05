@@ -49,6 +49,20 @@ export class OverworldMap {
     const { x, y } = utils.nextPosition(currentX, currentY, direction);
     return this.walls[`${x},${y}`] || false;
   }
+
+  addWall(x: number, y: number) {
+    this.walls[`${x},${y}`] = true;
+  }
+
+  removeWall(x: number, y: number) {
+    delete this.walls[`${x},${y}`];
+  }
+
+  moveWall(wasX: number, wasY: number, direction: TDirection) {
+    this.removeWall(wasX, wasY);
+    const { x, y } = utils.nextPosition(wasX, wasY, direction);
+    this.addWall(x, y);
+  }
 }
 
 window.OverworldMaps = {
@@ -77,6 +91,12 @@ window.OverworldMaps = {
   Kitchen: {
     lowerSrc: "./images/maps/KitchenLower.png",
     upperSrc: "./images/maps/KitchenUpper.png",
+    walls: {
+      [utils.asGridCoord(7, 6)]: true,
+      [utils.asGridCoord(8, 6)]: true,
+      [utils.asGridCoord(7, 6)]: true,
+      [utils.asGridCoord(8, 7)]: true,
+    },
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
