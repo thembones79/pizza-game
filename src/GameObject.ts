@@ -8,6 +8,7 @@ export type TBehavior = {
 };
 
 export interface IGameObjectConfig {
+  isMounted?: boolean;
   x?: number;
   y?: number;
   direction?: TDirection;
@@ -16,12 +17,14 @@ export interface IGameObjectConfig {
 }
 
 export class GameObject {
+  isMounted: boolean;
   x: number;
   y: number;
   direction: TDirection;
   sprite: Sprite;
 
   constructor(config: IGameObjectConfig) {
+    this.isMounted = false;
     this.x = config.x || 0;
     this.y = config.y || 0;
     this.direction = config.direction || "down";
@@ -29,6 +32,11 @@ export class GameObject {
       gameObject: this,
       src: config.src || "./images/characters/people/hero.png",
     });
+  }
+
+  mount(map) {
+    this.isMounted = true;
+    map.addMap(this.x, this.y);
   }
   update(_: any) {}
 }
